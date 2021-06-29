@@ -259,6 +259,51 @@
       src="https://www.facebook.com/tr?id=1131050004049166&ev=PageView&noscript=1"
       /></noscript>
       <!-- End Facebook Pixel Code -->
+      <!-- Start GTM dog fooding Code -->
+      <script>(function (w, d, s, l, i) {
+			w[l] = w[l] || []; w[l].push({
+				'gtm.start':
+					new Date().getTime(), event: 'gtm.js'
+			}); var f = d.getElementsByTagName(s)[0],
+				j = d.createElement(s), dl = l != 'dataLayer' ? '&l=' + l : ''; j.async = true; j.src =
+					'https://www.googletagmanager.com/gtm.js?id=' + i + dl; f.parentNode.insertBefore(j, f);
+		})(window, document, 'script', 'dataLayer', 'GTM-T2CN7N7');
+
+
+		function fireEvent(eventName){
+			window.dataLayer = window.dataLayer || [];
+			window.gtag = window.gtag || function(){dataLayer.push(arguments);}
+			console.log("Event: " + eventName);
+			gtag('event', eventName, {
+				'transaction_id': 't_12345',
+				'currency': 'USD',
+				'value': 1.23,
+				user_data: {
+					email_address: 'ABC@XYZ.com',
+					phone_number: '1234567890',
+					address: {
+						first_name: 'john',
+						last_name: 'smith',
+						city: 'menlopark',
+						region: 'ca',
+						postal_code: '94025',
+						country: 'usa',
+					},
+				},
+				items: [
+					{
+						item_id: '1',
+						item_name: 'foo',
+						quantity: 5,
+						price: 123.45,
+						item_category: 'bar',
+						item_brand	: 'baz',
+					}
+				],
+			});
+		}
+	   </script>
+      <!-- End GTM dog fooding Code -->
    </head>
    <body>
       <h1>Welcome to Serena's outdoor store</h1>
